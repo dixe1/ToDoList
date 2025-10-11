@@ -5,10 +5,20 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <string>
 #include <ctime>
 using namespace std;
 using json = nlohmann::json;
 namespace fs = std::filesystem;
+
+string formatTime(time_t t) {
+	struct tm timeInfo;
+	localtime_s(&timeInfo, &t);
+
+	char buffer[80];
+	strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", &timeInfo);
+	return std::string(buffer);
+}
 
 void addTask() {
 	clearTerm();
@@ -17,7 +27,9 @@ void addTask() {
 	string file = folder + "/data.json";
 	string taskName;
 	time_t taskCreateDate = time(0);
+	string taskFormattedDate = formatTime(taskCreateDate);
 	string taskEndDate[3];
+
 
 	json tasks;	//creating a variable to temporalu store json data from .json file
 
@@ -38,13 +50,14 @@ void addTask() {
 
 	json newTask;
 	newTask["name"] = taskName;
-	newTask["createDate"] = taskCreateDate;
+	newTask["createDate"] = taskFormattedDate;
 	newTask["endDate"] = taskEndDate;
 	tasks.push_back(newTask);	//adding newTask to tempolary task
 
 	ofstream dataFileOut(file);	//opening file to save
 	dataFileOut << tasks.dump(4);	//saving tempolary tasks to .json 
 	dataFileOut.close();
+	alertCode = "TaskS_A";
 }
 
 
@@ -54,6 +67,6 @@ void getUserData(std::string &taskName, std::string taskEndDate[]) {
 
 	write("enter task's end date", 37, 0, 0); cout << endl;
 	write("day >> ", 90, 0, 0); cin >> taskEndDate[0]; cout << endl;
-	write("mounth >> ", 90, 0, 0); cin >> taskEndDate[1]; cout << endl;
+	write("month >> ", 90, 0, 0); cin >> taskEndDate[1]; cout << endl;
 	write("year >> ", 90, 0, 0); cin >> taskEndDate[2]; cout << endl;
 }

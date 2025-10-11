@@ -1,12 +1,12 @@
 #include "clear_terminal.h"
 #include "console_writer.h"
+#include "delete_task.h"
 #include "json.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;
 using json = nlohmann::json;
 namespace fs = std::filesystem;
-int alertCode = -1;
 
 void deleteTask() {
 	clearTerm();
@@ -25,7 +25,7 @@ void deleteTask() {
 
 	if (!tasks.is_array() || tasks.empty()) {
 		//No tasks to delete
-		alertCode = 1;
+		alertCode = "FileEmpty_D";
 		return;
 	}
 
@@ -46,11 +46,11 @@ void deleteTask() {
 		ofstream dataFileOut(file);
 		dataFileOut << tasks.dump(4);
 		dataFileOut.close();
-		alertCode = 0;
+		alertCode = "TaskS_D";
 		//Task deleted successfully
 	}
 	else {
-		alertCode = 2;
+		alertCode = "TaskNFound_D";
 		//Task not found
 	}
 }
