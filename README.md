@@ -5,7 +5,6 @@
 
 > A lightweight, console-based task manager in C++
 
-Keep track of your tasks, set deadlines, and manage your daily to-dos—all from the command line.  
 Allows you to add, delete, and view tasks with deadlines. All task data is stored locally in JSON format.
 
 - Colorful alerts and notifications  
