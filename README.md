@@ -24,13 +24,17 @@ Allows you to add, delete, and view tasks with deadlines. All task data is store
 
 ## Third-Party Libraries
 
-This project uses the following third-party libraries:
+This project uses the following libraries:
+
+### External Libraries
 
 - **[nlohmann/json](https://github.com/nlohmann/json)** – a JSON library for modern C++.  
   - License: MIT License  
   - The `json.hpp` file included in this project retains its original license and copyright.
 
-- **[console_writer](https://github.com/dixe1/UsefulFunctions/tree/main/console_writer)** – custom library for printing colored text with delays.  
+### Custom Libraries by Author
+
+- [console_writer](https://github.com/dixe1/UsefulFunctions/tree/main/console_writer) – custom library created by the author of this project for printing colored text with delays.  
   - License: MIT License
 
 
