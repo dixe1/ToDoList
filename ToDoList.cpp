@@ -3,6 +3,8 @@
 #include "print_header.h"
 #include "print_menu.h"
 #include "add_task.h"
+#include "delete_task.h"
+#include "show_tasks.h"
 #include <iostream>
 using namespace std;
 
@@ -15,6 +17,23 @@ int main()
 		printHeader(firstStart); firstStart = false;	// printing the application name [ use write() only with first run ]
 		printMenu(); //printing menu options
 
+		//code = -1 | reset
+		switch (alertCode)
+		{
+		case 0:
+			write("Task deleted successfully.\n", 32, 0, 0);
+			alertCode = -1;
+			break;
+		case 1:
+			write("No tasks to delete.\n", 31, 0, 0);
+			alertCode = -1;
+			break;
+		case 2:
+			write("Task not found.\n", 31, 0, 0);
+			alertCode = -1;
+			break;
+		}
+
 		write(">> ", 90, 0, 0);
 		if (!(cin >> userChoice)) {	// Validate user input
 			cin.clear();
@@ -26,11 +45,13 @@ int main()
 		switch (userChoice)
 		{
 		case 'A':
-		case 'a'://add task
-			addTask();
+		case 'a':
+			addTask();	//	done
 			break;
+
 		case 'D':
-		case 'd'://delete task
+		case 'd':
+			deleteTask();
 			break;
 		case 'S':
 		case 's'://show task
