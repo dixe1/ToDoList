@@ -1,3 +1,4 @@
 #pragma once
+#include <string>
 void deleteTask();
-extern int alertCode;
+extern std::string alertCode;
