@@ -24,3 +24,8 @@ Allows you to add, delete, and view tasks with deadlines. All task data is store
 ## Custom Library
 
 This project contains a small custom library [console_writer](https://github.com/dixe1/UsefulFunctions/tree/main/console_writer) for printing text with optional color and delays.
+
+## System Requirements
+- Windows 10/11
+- 64-bit
+- C++17 compiler
