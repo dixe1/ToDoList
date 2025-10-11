@@ -8,6 +8,6 @@ void printHeader(bool firstStart){
 		write("------- My to do list -------", 90,20,20); cout << endl;
 	}
 	else {
-		cout << "\033[32m------- My to do list -------\033[0m" << endl;
+		write("------- My to do list -------", 90, 0, 0); cout << endl;
 	}
 }

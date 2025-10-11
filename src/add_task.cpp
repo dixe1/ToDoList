@@ -11,6 +11,8 @@ using json = nlohmann::json;
 namespace fs = std::filesystem;
 
 void addTask() {
+	clearTerm();
+
 	string folder = "tasks";
 	string file = folder + "/data.json";
 	string taskName;
@@ -32,11 +34,12 @@ void addTask() {
 		tasks = json::array();	//if .json wasn't array set array
 	}
 
-	clearTerm();
 	getUserData(taskName,taskEndDate);	//getting data aboud task
 
 	json newTask;
 	newTask["name"] = taskName;
+	newTask["createDate"] = taskCreateDate;
+	newTask["endDate"] = taskEndDate;
 	tasks.push_back(newTask);	//adding newTask to tempolary task
 
 	ofstream dataFileOut(file);	//opening file to save
