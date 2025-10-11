@@ -21,9 +21,18 @@ Allows you to add, delete, and view tasks with deadlines. All task data is store
 - **Alerts & Notifications** – Receive feedback about successful actions or errors.  
 - **Console-friendly Interface** – Easy-to-read, colorful outputs.  
 
-## Custom Library
 
-This project contains a small custom library [console_writer](https://github.com/dixe1/UsefulFunctions/tree/main/console_writer) for printing text with optional color and delays.
+## Third-Party Libraries
+
+This project uses the following third-party libraries:
+
+- **[nlohmann/json](https://github.com/nlohmann/json)** – a JSON library for modern C++.  
+  - License: MIT License  
+  - The `json.hpp` file included in this project retains its original license and copyright.
+
+- **[console_writer](https://github.com/dixe1/UsefulFunctions/tree/main/console_writer)** – custom library for printing colored text with delays.  
+  - License: MIT License
+
 
 ## System Requirements
 - Windows 10/11
