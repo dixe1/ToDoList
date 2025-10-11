@@ -5,34 +5,27 @@
 #include "add_task.h"
 #include "delete_task.h"
 #include "show_tasks.h"
+#include "alert.h"
 #include <iostream>
+#include <Windows.h>
 using namespace std;
 
+string alertCode = "0";
 int main()
 {
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
+
 	bool firstStart = true;
+	bool showTaskOpen = false;
 	while (true) {
 		clearTerm();
 		char userChoice = '0';
 		printHeader(firstStart); firstStart = false;	// printing the application name [ use write() only with first run ]
 		printMenu(); //printing menu options
 
-		//code = -1 | reset
-		switch (alertCode)
-		{
-		case 0:
-			write("Task deleted successfully.\n", 32, 0, 0);
-			alertCode = -1;
-			break;
-		case 1:
-			write("No tasks to delete.\n", 31, 0, 0);
-			alertCode = -1;
-			break;
-		case 2:
-			write("Task not found.\n", 31, 0, 0);
-			alertCode = -1;
-			break;
-		}
+		alert(alertCode);
+		if (showTaskOpen) { showTasks(); }
 
 		write(">> ", 90, 0, 0);
 		if (!(cin >> userChoice)) {	// Validate user input
@@ -41,6 +34,7 @@ int main()
 			clearTerm();
 			continue;
 		}
+		showTaskOpen = false;
 
 		switch (userChoice)
 		{
@@ -53,11 +47,14 @@ int main()
 		case 'd':
 			deleteTask();
 			break;
+
 		case 'S':
 		case 's'://show task
+			showTaskOpen = true;
 			break;
+
 		case 'E':
-		case 'e'://show task
+		case 'e'://exit
 			return 0;
 		default:
 			clearTerm();
