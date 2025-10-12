@@ -4,10 +4,7 @@
 using namespace std;
 
 void printHeader(bool firstStart){
-	if (firstStart) {
-		write("------- My to do list -------", 90,20,20); cout << endl;
-	}
-	else {
-		write("------- My to do list -------", 90, 0, 0); cout << endl;
-	}
+	int color = 0;
+	if (firstStart) color = 20;
+	write("------- My to do list -------", 90, color, color); cout << endl;
 }
