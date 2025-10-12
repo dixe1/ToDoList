@@ -13,6 +13,9 @@ Allows you to add, delete, and view tasks with deadlines. All task data is store
 
 ---
 
+![Main menu of ToDoList program](images/1.png)
+![ToDoList menu showing saved tasks](images/2.png)
+
 ## Features
 
 - **Add Task** – Enter the task name and end date.  
