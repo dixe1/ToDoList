@@ -24,8 +24,8 @@ int main()
 		printHeader(firstStart); firstStart = false;	// printing the application name [ use write() only with first run ]
 		printMenu(); //printing menu options
 
-		alert(alertCode);
 		if (showTaskOpen) { showTasks(); }
+		alert(alertCode);
 
 		write(">> ", 90, 0, 0);
 		if (!(cin >> userChoice)) {	// Validate user input
