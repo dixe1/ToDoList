@@ -26,6 +26,7 @@ void addTask() {
 	string folder = "tasks";
 	string file = folder + "/data.json";
 	string taskName;
+	string taskDescription;
 	time_t taskCreateDate = time(0);
 	string taskFormattedDate = formatTime(taskCreateDate);
 	string taskEndDate[3];
@@ -46,10 +47,11 @@ void addTask() {
 		tasks = json::array();	//if .json wasn't array set array
 	}
 
-	getUserData(taskName,taskEndDate);	//getting data aboud task
+	getUserData(taskName, taskDescription,taskEndDate);	//getting data aboud task
 
 	json newTask;
 	newTask["name"] = taskName;
+	newTask["description"] = taskDescription;
 	newTask["createDate"] = taskFormattedDate;
 	newTask["endDate"] = taskEndDate;
 	tasks.push_back(newTask);	//adding newTask to tempolary task
@@ -61,12 +63,15 @@ void addTask() {
 }
 
 
-void getUserData(std::string &taskName, std::string taskEndDate[]) {
+void getUserData(string &taskName, string &taskDescription, string taskEndDate[]) {
 	cin.ignore(INT_MAX, '\n');	//cleaning bufor
 	write("enter name >> ", 37, 0, 0); getline(cin, taskName); cout << endl;
+	write("Enter description (leave blank for none) >> ", 37, 0, 0); getline(cin, taskDescription); cout << endl;
 
 	write("enter task's end date", 37, 0, 0); cout << endl;
 	write("day >> ", 90, 0, 0); cin >> taskEndDate[0]; cout << endl;
 	write("month >> ", 90, 0, 0); cin >> taskEndDate[1]; cout << endl;
 	write("year >> ", 90, 0, 0); cin >> taskEndDate[2]; cout << endl;
+	
+	if (taskDescription == "") taskDescription = "-";	//seting "-" if user not providet taskDescription
 }

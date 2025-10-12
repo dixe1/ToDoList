@@ -22,9 +22,11 @@ void showTasks() {
         return;
     }
 
+
     int index = 1;
     for (const auto& task : tasks) {
         write("+ " + task["name"].get<string>(), 32, 0, 0); cout << endl;
+        write("    |-- Description: " + task["description"].get<string>(), 36, 0, 0); cout << endl;
         write("    |-- Create date: " + task["createDate"].get<string>(), 36, 0, 0); cout << endl;
 
         auto endDate = task["endDate"];
