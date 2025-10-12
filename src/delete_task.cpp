@@ -1,6 +1,7 @@
 #include "clear_terminal.h"
 #include "console_writer.h"
 #include "delete_task.h"
+#include "show_tasks.h"
 #include "json.hpp"
 #include <iostream>
 #include <fstream>
@@ -10,6 +11,8 @@ namespace fs = std::filesystem;
 
 void deleteTask() {
 	clearTerm();
+	showTasks();	//showing tasks to the user
+
 	string folder = "tasks";
 	string file = folder + "/data.json";
 	string taskName;
