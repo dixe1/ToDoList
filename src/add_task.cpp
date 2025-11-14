@@ -17,7 +17,7 @@ string formatTime(time_t t) {
 
 	char buffer[80];
 	strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", &timeInfo);
-	return std::string(buffer);
+	return string(buffer);
 }
 
 void addTask() {
@@ -65,13 +65,13 @@ void addTask() {
 
 void getUserData(string &taskName, string &taskDescription, string taskEndDate[]) {
 	cin.ignore(INT_MAX, '\n');	//cleaning bufor
-	write("enter name >> ", 37, 0, 0); getline(cin, taskName); cout << endl;
-	write("Enter description (leave blank for none) >> ", 37, 0, 0); getline(cin, taskDescription); cout << endl;
+	consoleTools::write("enter name >> ", 37, 0, 0); getline(cin, taskName); cout << endl;
+	consoleTools::write("Enter description (leave blank for none) >> ", 37, 0, 0); getline(cin, taskDescription); cout << endl;
 
-	write("enter task's end date", 37, 0, 0); cout << endl;
-	write("day >> ", 90, 0, 0); cin >> taskEndDate[0]; cout << endl;
-	write("month >> ", 90, 0, 0); cin >> taskEndDate[1]; cout << endl;
-	write("year >> ", 90, 0, 0); cin >> taskEndDate[2]; cout << endl;
+	consoleTools::write("enter task's end date", 37, 0, 0); cout << endl;
+	consoleTools::write("day >> ", 90, 0, 0); cin >> taskEndDate[0]; cout << endl;
+	consoleTools::write("month >> ", 90, 0, 0); cin >> taskEndDate[1]; cout << endl;
+	consoleTools::write("year >> ", 90, 0, 0); cin >> taskEndDate[2]; cout << endl;
 	
 	if (taskDescription == "") taskDescription = "-";	//seting "-" if user not providet taskDescription
 }
