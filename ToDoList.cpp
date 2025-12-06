@@ -8,9 +8,8 @@
 #include "alert.h"
 #include <iostream>
 #include <Windows.h>
-using namespace std;
 
-string alertCode = "0";
+std::string alertCode = "0";
 int main()
 {
 	SetConsoleOutputCP(CP_UTF8);
@@ -18,19 +17,23 @@ int main()
 
 	bool firstStart = true;
 	bool showTaskOpen = false;
-	while (true) {
+
+	while (true)
+	{
 		clearTerm();
 		char userChoice = '0';
 		printHeader(firstStart); firstStart = false;	// printing the application name [ use write() only with first run ]
 		printMenu(); //printing menu options
 
-		if (showTaskOpen) { showTasks(); }
+		if (showTaskOpen) showTasks();
 		alert(alertCode);
 
-		write(">> ", 90, 0, 0);
-		if (!(cin >> userChoice)) {	// Validate user input
-			cin.clear();
-			cin.ignore(INT_MAX, '\n');
+		consoleTools::write(">> ", 90, 0, 0);
+
+		if (!(std::cin >> userChoice))	// Validate user input
+		{
+			std::cin.clear();
+			std::cin.ignore(INT_MAX, '\n');
 			clearTerm();
 			continue;
 		}

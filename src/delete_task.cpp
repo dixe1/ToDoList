@@ -18,7 +18,7 @@ void deleteTask() {
 	string taskName;
 
 	if (!fs::exists(file)) {	//checking file
-		write("no tasks found", 31, 0, 0);
+		consoleTools::write("no tasks found", 31, 0, 0);
 	}
 
 	ifstream dataFileIn(file);
@@ -32,7 +32,7 @@ void deleteTask() {
 		return;
 	}
 
-	write("enter task's name >> ", 90, 0, 0);
+	consoleTools::write("enter task's name >> ", 90, 0, 0);
 	cin.ignore(INT_MAX, '\n');
 	(getline(cin, taskName));
 

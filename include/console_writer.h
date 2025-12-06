@@ -2,4 +2,4 @@
 #include <string>
 
 
-void write(const std::string& text, int color = 0, int delayCh = 40, int delayS = 40);
+namespace consoleTools{ void write(const std::string& text, int color = 0, int delayCh = 40, int delayS = 40); }

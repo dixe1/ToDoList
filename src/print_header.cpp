@@ -4,7 +4,11 @@
 using namespace std;
 
 void printHeader(bool firstStart){
-	int color = 0;
-	if (firstStart) color = 20;
-	write("------- My to do list -------", 90, color, color); cout << endl;
+	cout << "\033[?25l"; // hide cursor
+
+	int delay = 0;
+	if (firstStart) delay = 20;
+	consoleTools::write("------- My to do list -------", 90, delay, delay); cout << endl;
+
+	cout << "\033[?25h"; // show
 }
