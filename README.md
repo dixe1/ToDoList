@@ -41,7 +41,8 @@ This project uses the following libraries:
   - License: MIT License
 
 
-## System Requirements
-- Windows 10/11
-- 64-bit
+## Requirements
+
+- CMake 3.25 or newer
 - C++17 compiler
+- Windows 10/11
